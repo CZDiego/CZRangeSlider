@@ -10,9 +10,10 @@
 		E64B594B21DD323000BE990C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B594A21DD323000BE990C /* AppDelegate.swift */; };
 		E64B594D21DD323000BE990C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B594C21DD323000BE990C /* ViewController.swift */; };
 		E64B595021DD323000BE990C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64B594E21DD323000BE990C /* Main.storyboard */; };
-		E64B595321DD323000BE990C /* CZRangeSlider.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E64B595121DD323000BE990C /* CZRangeSlider.xcdatamodeld */; };
 		E64B595521DD323200BE990C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E64B595421DD323200BE990C /* Assets.xcassets */; };
 		E64B595821DD323200BE990C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64B595621DD323200BE990C /* LaunchScreen.storyboard */; };
+		E64B596021DD32A100BE990C /* CZRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B595F21DD32A100BE990C /* CZRangeSlider.swift */; };
+		E64B596221DD32E000BE990C /* CZRangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B596121DD32E000BE990C /* CZRangeSliderTrackLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +21,11 @@
 		E64B594A21DD323000BE990C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E64B594C21DD323000BE990C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E64B594F21DD323000BE990C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E64B595221DD323000BE990C /* CZRangeSlider.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CZRangeSlider.xcdatamodel; sourceTree = "<group>"; };
 		E64B595421DD323200BE990C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E64B595721DD323200BE990C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E64B595921DD323200BE990C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E64B595F21DD32A100BE990C /* CZRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZRangeSlider.swift; sourceTree = "<group>"; };
+		E64B596121DD32E000BE990C /* CZRangeSliderTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZRangeSliderTrackLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,22 @@
 			children = (
 				E64B594A21DD323000BE990C /* AppDelegate.swift */,
 				E64B594C21DD323000BE990C /* ViewController.swift */,
+				E64B596321DD330000BE990C /* RangeSlider */,
 				E64B594E21DD323000BE990C /* Main.storyboard */,
 				E64B595421DD323200BE990C /* Assets.xcassets */,
 				E64B595621DD323200BE990C /* LaunchScreen.storyboard */,
 				E64B595921DD323200BE990C /* Info.plist */,
-				E64B595121DD323000BE990C /* CZRangeSlider.xcdatamodeld */,
 			);
 			path = CZRangeSlider;
+			sourceTree = "<group>";
+		};
+		E64B596321DD330000BE990C /* RangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				E64B595F21DD32A100BE990C /* CZRangeSlider.swift */,
+				E64B596121DD32E000BE990C /* CZRangeSliderTrackLayer.swift */,
+			);
+			path = RangeSlider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E64B594D21DD323000BE990C /* ViewController.swift in Sources */,
-				E64B595321DD323000BE990C /* CZRangeSlider.xcdatamodeld in Sources */,
 				E64B594B21DD323000BE990C /* AppDelegate.swift in Sources */,
+				E64B596221DD32E000BE990C /* CZRangeSliderTrackLayer.swift in Sources */,
+				E64B596021DD32A100BE990C /* CZRangeSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YS3U5G94T;
 				INFOPLIST_FILE = CZRangeSlider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6YS3U5G94T;
 				INFOPLIST_FILE = CZRangeSlider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,19 +354,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E64B595121DD323000BE990C /* CZRangeSlider.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E64B595221DD323000BE990C /* CZRangeSlider.xcdatamodel */,
-			);
-			currentVersion = E64B595221DD323000BE990C /* CZRangeSlider.xcdatamodel */;
-			path = CZRangeSlider.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E64B593F21DD323000BE990C /* Project object */;
 }

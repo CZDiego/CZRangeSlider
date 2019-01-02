@@ -12,7 +12,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let rangeSlider = CZRangeSlider(frame: CGRect(x: 20, y: 100, width: 200, height: 40))
+        self.view.addSubview(rangeSlider)
     }
 
 
