@@ -13,12 +13,18 @@ class CZRangeSlider : UIControl{
     
     var minimumValue : CGFloat! = 0.0 {
         didSet{
+            if minimumValue > maximumValue{
+                maximumValue = minimumValue
+            }
             updateLayerFrames()
         }
     }
     
     var maximumValue : CGFloat! = 1.0 {
         didSet{
+            if maximumValue < minimumValue{
+                minimumValue = maximumValue
+            }
             updateLayerFrames()
         }
     }
@@ -35,19 +41,19 @@ class CZRangeSlider : UIControl{
         }
     }
     
-    var trackHeight : CGFloat! = 2{
+    var trackHeight : CGFloat! = 2.0{
         didSet{
             updateLayerFrames()
         }
     }
     
-    var trackTintColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 1){
+    var trackTintColor = UIColor(red: 182/255, green: 182/255, blue: 182/255, alpha: 1){
         didSet{
             trackLayer.setNeedsDisplay()
         }
     }
     
-    var trackHighlightTintColor = UIColor(red: 0, green: 0.45, blue: 0.94, alpha: 1)
+    var trackHighlightTintColor = UIColor(red: 15/255, green: 118/255, blue: 1, alpha: 1)
     {
         didSet{
             trackLayer.setNeedsDisplay()
@@ -74,7 +80,6 @@ class CZRangeSlider : UIControl{
     private let trackLayer = CZRangeSliderTrackLayer()
     private let lowerThumbImageView = UIImageView()
     private let upperThumbImageView = UIImageView()
-    
     private var previousLocation = CGPoint()
     
     override var frame : CGRect{
@@ -122,17 +127,26 @@ class CZRangeSlider : UIControl{
     }
     
     func positionForValue(_ value: CGFloat) -> CGFloat {
-        return bounds.width * value
+        
+        let usableWidth = bounds.width - thumbImage.size.width
+        
+        print("usableWidth = \(usableWidth)")
+        print("bounds.width = \(bounds.width)")
+        print("thumbImage = \(thumbImage.size.width)")
+        let normalizedValue = (value - minimumValue) / (maximumValue - minimumValue)
+        print("value = \(value)")
+        print("normalized Value = \(normalizedValue)")
+        print("x position = \(normalizedValue * usableWidth + thumbImage.size.width / 2.0)")
+        
+        return normalizedValue * usableWidth
+        
     }
     
     private func thumbOriginForValue (_ value: CGFloat) -> CGPoint {
-        let x = positionForValue(value) - thumbImage.size.width / 2.0
+        
+        let x = positionForValue(value)
         return CGPoint(x: x, y: (bounds.height - thumbImage.size.height) / 2.0)
     }
-}
-
-
-extension CZRangeSlider{
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         
@@ -152,8 +166,9 @@ extension CZRangeSlider{
     override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let location = touch.location(in: self)
         
+        
         let deltaLocation = location.x - previousLocation.x
-        let deltaValue = deltaLocation / bounds.width
+        let deltaValue = (maximumValue - minimumValue) * deltaLocation / bounds.width
         
         previousLocation = location
         
