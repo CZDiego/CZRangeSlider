@@ -26,8 +26,8 @@ class CZRangeSliderTrackLayer: CALayer{
         ctx.fillPath()
         
         ctx.setFillColor(slider.trackHighlightTintColor.cgColor)
-        let lowerValuePosition = slider.positionForValue(slider.lowerValue)
-        let upperValuePosition = slider.positionForValue(slider.upperValue)
+        let lowerValuePosition = slider.xPositionForValue(slider.lowerValue)
+        let upperValuePosition = slider.xPositionForValue(slider.upperValue)
         let rect = CGRect(x: lowerValuePosition, y: 0, width: upperValuePosition - lowerValuePosition, height: bounds.height)
         
         ctx.fill(rect)

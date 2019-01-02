@@ -126,25 +126,17 @@ class CZRangeSlider : UIControl{
         
     }
     
-    func positionForValue(_ value: CGFloat) -> CGFloat {
+    func xPositionForValue(_ value: CGFloat) -> CGFloat {
         
         let usableWidth = bounds.width - thumbImage.size.width
-        
-        print("usableWidth = \(usableWidth)")
-        print("bounds.width = \(bounds.width)")
-        print("thumbImage = \(thumbImage.size.width)")
         let normalizedValue = (value - minimumValue) / (maximumValue - minimumValue)
-        print("value = \(value)")
-        print("normalized Value = \(normalizedValue)")
-        print("x position = \(normalizedValue * usableWidth + thumbImage.size.width / 2.0)")
-        
-        return normalizedValue * usableWidth
+        return normalizedValue * usableWidth + thumbImage.size.width / 2.0
         
     }
     
     private func thumbOriginForValue (_ value: CGFloat) -> CGPoint {
         
-        let x = positionForValue(value)
+        let x = xPositionForValue(value) - thumbImage.size.width / 2.0
         return CGPoint(x: x, y: (bounds.height - thumbImage.size.height) / 2.0)
     }
     
